@@ -1,1 +1,1 @@
-[{"id":1,"task":"bangun","completed":true,"createdAt":"2017-01-11T07:19:35.450Z"},{"id":2,"task":"sarapan","completed":false,"createdAt":"2017-01-11T07:19:42.074Z"},{"id":3,"task":"coding","completed":false,"createdAt":"2017-01-11T07:19:48.093Z"}]
+[{"id":1,"task":"bangun","completed":false,"createdAt":"2017-01-11T07:19:35.450Z"},{"id":2,"task":"sarapan","completed":false,"createdAt":"2017-01-11T07:19:42.074Z"},{"id":3,"task":"coding","completed":false,"createdAt":"2017-01-11T07:19:48.093Z"}]

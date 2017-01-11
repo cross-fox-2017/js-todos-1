@@ -72,7 +72,6 @@ else if(code==='complete'){
 else if(code==='uncomplete'){
   data[code2-1].completed=false;
   fs.writeFileSync(skrip,JSON.stringify(data),'utf-8')
-  c
 }
 
 else {
