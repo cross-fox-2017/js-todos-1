@@ -83,8 +83,9 @@ class TodoList {
       for (let i = 0; i < this.listData.length; i++) {
         this.listData[i]['id'] += 1;
       }
-      }
     }
+    this.writeToFile()
+  }
 
     if(argv[2] == "complete"){
       if(argv[3] == undefined || argv[3] > this.listData.length){
