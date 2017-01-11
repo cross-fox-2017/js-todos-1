@@ -26,7 +26,10 @@ switch (input[2]) {
   break;
 
 
-  case "list":  showList()
+  case "list":
+
+      showList()
+      
   break;
 
   case "task":
@@ -116,7 +119,6 @@ function Task(id){
         console.log("TASK : "+json[i].Task);
       }
   }
-
 
 
 }
