@@ -1,4 +1,4 @@
-// const fs = require('fs')
+const fs = require('fs')
 const jsonfile = require('jsonfile')
 const file = 'data.json'
 
@@ -10,8 +10,7 @@ switch (input[0]) {
     break;
 
   case 'add':
-    let addResult = addData(input)
-    jsonfile.writeFileSync(file, addResult)
+    addData()
     break;
 
   case 'task':
@@ -38,6 +37,10 @@ switch (input[0]) {
       console.log('$node todo.js delete <task_id>');
       console.log('$node todo.js complete <task_id>');
       console.log('$node todo.js uncomplete <taks_id>');
+      console.log('$ node todo.js list:outstanding asc|desc');
+      console.log('$ node todo.js list:completed asc|desc');
+      console.log('$ node todo.js tag <task_id> <tag_name_1> <tag_name_2> ... <tag_name_N');
+      console.log('$ node todo.js filter:<tag_name>');
 }
 // process.argv.forEach((input) => {
 //   if (input == 'help') {
@@ -59,19 +62,27 @@ switch (input[0]) {
 //
 function listData() {
   let db = jsonfile.readFileSync(file)
-  console.log(db);
+  // var temp = JSON.parse(db)
+  // console.log(db.length);
+  for (var i = 0; i < db.length; i++) {
+     console.log(`${db[i].id}. ${db[i].complete} ${db[i].task}`);
+  }
+  // console.log(JSON.parse(db[i]));
 }
 
-function addData(array) {
-  var temp = []
-  for (var i = 0; i < array.length; i++) {
-    temp[i] = {
-      id: i,
-      task: array[i+1],
-      complete: "[]"
-    }
+function addData() {
+  let db = jsonfile.readFileSync(file)
+  var temp = ''
+  for (var i = 3; i < process.argv.length; i++) {
+    temp += process.argv[i] + ' '
   }
-  return temp
+  var newData = {
+    id: db.length+1,
+    task: temp,
+    complete: "[ ]"
+  }
+  db.push(newData)
+  jsonfile.writeFileSync(file, db)
 }
 
 function taskData(id) {
