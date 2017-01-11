@@ -29,11 +29,12 @@ class ToDo{
   static add(task){
     let tambah = new Task(this.data[this.data.length-1].id+1, task)
     this.data.push(tambah);
+    this.saveJSON()
     return `"${tambah.name}" added`
   }
   static task(id){
     for (let i = 0; i< this.data.length; i++){
-      if(id === this.data[i].id){
+      if(id == this.data[i].id){
         return this.data[i]
       }
     }
@@ -41,7 +42,7 @@ class ToDo{
   }
   static delete(id){
     for (let i = 0; i< this.data.length; i++){
-      if(id === this.data[i].id){
+      if(id == this.data[i].id){
         this.data.splice(i,1)
         this.saveJSON()
         return `${this.data[i].name} deleted`
@@ -51,7 +52,7 @@ class ToDo{
   }
   static complete(id){
     for (let i = 0; i< this.data.length; i++){
-      if(id === this.data[i].id){
+      if(id == this.data[i].id){
         this.data[i].completed = "[X]"
         this.saveJSON()
         return `${this.data[i].name} status completed`
@@ -61,7 +62,7 @@ class ToDo{
   }
   static uncomplete(id){
     for (let i = 0; i< this.data.length; i++){
-      if(id === this.data[i].id){
+      if(id == this.data[i].id){
         this.data[i].completed = "[ ]"
         this.saveJSON()
         return `${this.data[i].name} status Uncomplete`
@@ -78,16 +79,10 @@ class ToDo{
     fs.writeFileSync('data.json', save)
   }
 }
-// ToDo.add("Test Data")
-// ToDo.saveJSON()
-// console.log(ToDo.complete(1));
-// console.log(ToDo.uncomplete(1));
-// console.log(ToDo.list())
 console.log(run());
-
 function run(){
   let cmd = process.argv[2]
-  let taskid = process.argv.slice(3)
+  let taskid = process.argv.slice(3).join(" ")
   ToDo.getJSON()
   switch (cmd) {
     case "help":
