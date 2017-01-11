@@ -1,1 +1,27 @@
-[]
+[
+   {
+      "id": 1,
+      "Task": "Belajar di HACKTIV8",
+      "Complete": "[X]"
+   },
+   {
+      "id": 3,
+      "Task": "MASUK PERUSAHAAN KEREN",
+      "Complete": "[ ]"
+   },
+   {
+      "id": 4,
+      "Task": "JADI KAYA",
+      "Complete": "[ ]"
+   },
+   {
+      "id": 5,
+      "Task": "JADI kAYA BANGET !!",
+      "Complete": "[ ]"
+   },
+   {
+      "id": 7,
+      "Task": "KELAS EE",
+      "Complete": "[ ]"
+   }
+]
